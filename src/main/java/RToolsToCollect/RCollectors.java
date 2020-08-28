@@ -118,45 +118,6 @@ public class RCollectors {
                 o -> o.collection
         );
     }
-//    public static <T, R extends Collection<T>> Collector<T, ?, List<T>> pairCollection(String delimiter,
-//                                                                                    Supplier<R> chooser,
-//                                                                                 Function<T, String> converter) {
-//        BiFunction<? super R, ? super R, List<T>> finisher = (o1, o2) -> {
-//            o1.addAll(o2);return o1;};
-//        class Container {
-//            private T last;
-//            private final List<T> collection;
-//            private int count;
-//
-//            public Container() {
-//                collection = new ArrayList<>();
-//            }
-//
-//            public Container(List<T> collection) {
-//                this.collection = collection;
-//            }
-//
-//            void add(T t) {
-//                if (count > 0) {
-//                    collection.add(last);
-//                    last = t;
-//                } else {
-//                    last = t;
-//                    count++;
-//                }
-//            }
-//
-//            Container combine(Container other) {
-//                throw new UnsupportedByParallelCollector();
-//            }
-//        }
-//        return Collector.of(
-//                Container::new,
-//                Container::add,
-//                Container::combine,
-//                o -> finisher.apply(chooser.get(), o.collection)
-//        );
-//    }
 
     /**
      * @param keyMapper     the function that accepts element of stream and returns an element of other type(it is a key in main map)

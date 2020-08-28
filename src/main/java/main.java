@@ -11,12 +11,13 @@ public class main {
 //                limit(20).peek(System.out::println).boxed().collect(RCollectors.minMax(Integer::compare)).
 //                orElse(null).converter((o1, o2) -> "Min : " + o1 + ", max : " + o2);
 //        System.out.println(s);
-        List<Integer> l = Arrays.asList(1, 1, 1, 3, 2, 2, 2, 0, 1, 6, 6, 6);
-        String mapka = l.stream().collect(RCollectors.doOperationWithSameObjs(
+        List<Integer> l = new Random().ints(30, 0, 10).boxed().collect(Collectors.toList());
+        List<Integer> list = l.stream().collect(RCollectors.doOperationWithSameObjs(
                 ArrayList::new,
-                (o1, o2) -> o1 - o2,
-                o -> o.stream().map(String::valueOf).collect(Collectors.joining(", "))
+                (o1, o2) -> o1 + o2,
+                o -> o
         ));
-        System.out.println(mapka);
+        System.out.println(list);
+        System.out.println(l);
     }
 }
